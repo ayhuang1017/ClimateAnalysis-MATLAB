@@ -66,7 +66,7 @@ end
 index=nan(nt,1);
 for it=1:1:nt
     if nnelat>nswlat
-        index(it,1)=mean(mean(data(nswlon:nnelon,nswlat:nnelat,it),1,'omitnan'),2,'omitnan');
+        index(it,1)=mean(data(nswlon:nnelon,nswlat:nnelat,it),'all','omitnan');
         % NANMEAN function for older version of MATLAB
         % index(it,1)=nanmean(nanmean(data(nswlon:nnelon,nswlat:nnelat,it),1),2);
         % NANMEAN_OLD function for the oldest version of MATLAB
@@ -77,7 +77,7 @@ for it=1:1:nt
             disp(dfn);
         end
     else
-        index(it,1)=mean(mean(data(nswlon:nnelon,nnelat:nswlat,it),1,'omitnan'),2,'omitnan');
+        index(it,1)=mean(data(nswlon:nnelon,nnelat:nswlat,it),'all','omitnan');
         % NANMEAN function for older version of MATLAB
         % index(it,1)=nanmean(nanmean(data(nswlon:nnelon,nswlat:nnelat,it),1),2);
         % NANMEAN_OLD function for the oldest version of MATLAB
